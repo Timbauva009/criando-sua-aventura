@@ -1,33 +1,149 @@
+/* =========================
+   VARIÁVEIS E CONFIGURAÇÕES
+   ========================= */
+:root {
+  --primary-color: #6c63ff;       /* Cor principal da aventura */
+  --secondary-color: #ff6584;     /* Destaques ou escolhas */
+  --background-color: #f5f5f5;    /* Fundo geral */
+  --text-color: #222222;          /* Texto principal */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================
+   RESET E BASE
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #1D4221;
-    color: white;
-    font-family: "Bai Jamjuree", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 700px;
-    margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
 }
 
-button {
-    background-color: #64A712;
-    color: white;
-    font-family: "Bai Jamjuree", sans-serif;
+/* =========================
+   LAYOUT PRINCIPAL
+   ========================= */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.passo {
-    display: none;
+/* =========================
+   TIPOGRAFIA
+   ========================= */
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
 }
 
-.passo.ativo {
-    display:block;
+p {
+  margin-bottom: 15px;
 }
 
-main {
-    text-align: center;
-    max-width: 90%;
+/* =========================
+   BOTÕES DE ESCOLHA
+   ========================= */
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 5px 5px 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
+.button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* =========================
+   LINKS E INTERAÇÕES
+   ========================= */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* =========================
+   IMAGENS
+   ========================= */
 img {
-    max-width: 90%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 20px 0;
+}
+
+/* =========================
+   CENAS (TRANSIÇÃO SUAVE)
+   ========================= */
+[data-scene] {
+  transition: opacity 0.3s ease-in-out;
+}
+
+[data-scene][style*="display: none"] {
+  opacity: 0;
+}
+
+[data-scene][style*="display: block"] {
+  opacity: 1;
+}
+
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .button {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
 }
